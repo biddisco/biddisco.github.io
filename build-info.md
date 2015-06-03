@@ -1,5 +1,47 @@
 # Compilation
-
+## Daint
+### BBP-pv
+```
+cmake \
+ -DCMAKE_CXX_FLAGS=-std=c++11 \
+ -DCUDA_NVCC_FLAGS=-std=c++11 \
+ -DCUDA_PROPAGATE_HOST_FLAGS=OFF \
+ -DCMAKE_OSX_ARCHITECTURES=x86_64 \
+ -DBUILDYARD_DISABLED=ON \
+ -DDISABLE_BUILDYARD=ON \
+ -DBBP_SDK_JAVA=OFF \
+ -DBBP_SDK_PYTHON=OFF \
+ -DSUBPROJECT_BBPSDK:BOOL=ON \
+ -DSUBPROJECT_BBPTestData:BOOL=OFF \
+ -DSUBPROJECT_Brion:BOOL=ON \
+ -DSUBPROJECT_Collage:BOOL=OFF \
+ -DSUBPROJECT_DSM-Manager:BOOL=ON \
+ -DSUBPROJECT_FlatBuffers:BOOL=OFF \
+ -DSUBPROJECT_Lunchbox:BOOL=ON \
+ -DSUBPROJECT_codash:BOOL=OFF \
+ -DSUBPROJECT_dash:BOOL=OFF \
+ -DSUBPROJECT_pv_bbp:BOOL=ON \
+ -DSUBPROJECT_pv_cuda_piston:BOOL=ON \
+ -DSUBPROJECT_pv_meshless:BOOL=ON \
+ -DSUBPROJECT_pv_splotch:BOOL=ON \
+ -DSUBPROJECT_pv_zoltan:BOOL=ON \
+ -DSUBPROJECT_vmmlib:BOOL=ON \
+ -DSUBPROJECT_zeq:BOOL=OFF \
+ -DPV_CUDA_PISTON_USE_BOOST_TUPLE=OFF \
+ -DPV_CUDA_PISTON_BUILD_REPRESENTATION=ON \
+ -DPV_MESHLESS_USE_HDF5=ON \
+ -DPV_MESHLESS_USE_OPENMP=ON \
+ -DPV_SPLOTCH_DISABLE_READERS=ON \
+ -DPV_SPLOTCH_USE_CUDA=ON \
+ -DPV_SPLOTCH_USE_OPENMP=OFF \
+ -DParaView_DIR=/scratch/daint/biddisco/build/pv4 \
+ -DH5FDdsm_DIR:PATH=/users/biddisco/apps/daint/h5fddsm/share/cmake/h5fddsm \
+ -DHDF5_DIR=/users/biddisco/apps/daint/hdf5_1_8_cmake/share/cmake/hdf5 \
+ -DBOOST_ROOT=/apps/daint/boost/1.56.0/gnu_482/ \
+ -DBoost_INCLUDE_DIR=/apps/daint/boost/1.56.0/gnu_482/include\
+ -DBoost_LIBRARY_DIR=/apps/daint/boost/1.56.0/gnu_482/lib \
+ /project/csvis/biddisco/src/bbp-pv
+``` 
 ## Mac
 ### Boost
 ```
