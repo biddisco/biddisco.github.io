@@ -196,5 +196,9 @@ cmake \
  -DTrilinos_ENABLE_Zoltan2=ON \
  /project/csvis/biddisco/src/trilinos
 ```
-
-
+## Windows
+### Boost
+```
+.\bootstrap.bat
+b2 --prefix=c:\Boost\1_58_0_vs12 link=shared variant=release,debug architecture=x86 address-model=64 threading=multi install
+```
