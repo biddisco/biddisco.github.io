@@ -1,5 +1,31 @@
 # Compilation
 ## Daint
+### ParaView
+```
+# modules we want 
+module load cudatoolkit
+module unload PrgEnv-cray
+module load PrgEnv-gnu
+module swap craype/2.2.0
+module swap cray-libsci/13.0.1
+module swap cray-mpich/7.0.3
+module load cmake
+module load viz
+
+# compiler wrapper makes MPI easier, CMake will pick this up
+export CC=/opt/cray/craype/default/bin/cc
+export CXX=/opt/cray/craype/default/bin/CC
+
+cmake \
+ -DCMAKE_BUILD_TYPE=Debug \
+ -DPARAVIEW_ENABLE_PYTHON:BOOL=OFF \
+ -DPARAVIEW_USE_MPI:BOOL=ON \
+ -DPARAVIEW_BUILD_QT_GUI:BOOL=OFF \
+ -DBUILD_TESTING:BOOL=OFF \
+ -DOPENGL_INCLUDE_DIR:PATH=/opt/cray/nvidia/default/include 
+ -DOPENGL_gl_LIBRARY:FILEPATH=/opt/cray/nvidia/default/lib64/libGL.so
+ /scratch/daint/biddisco/src/paraview
+```
 ### BBP-pv
 ```
 cmake \
