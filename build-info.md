@@ -230,6 +230,10 @@ b2 --prefix=c:\Boost\1_58_0_vs12 link=shared variant=release,debug architecture=
 ```
 ## Monch
 ### MongoDB 
+Without need to create compiler wrappers, use propagate setting tom pass ENV vars to scons
+```
+~/apps/monch/scons/bin/scons --propagate-shell-environment --prefix=/users/biddisco/apps/monch/mongodb-r3.03 --cxx=/apps/monch/gcc/4.9.0/bin/g++ --cc=/apps/monch/gcc/4.9.0/bin/gcc --config=force all
+```
 create init.sh with contents
 ```
 module load gcc/4.9.0
