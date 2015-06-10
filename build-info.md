@@ -174,7 +174,7 @@ make install
 cmake \
 -DCMAKE_CXX_FLAGS=-std=c++11 \
 -DCMAKE_BUILD_TYPE=Release \
--DHPX_WITH_GENERIC_CONTEXT_COROUTINES:BOOL=ON \
+-DHPX_WITH_GENERIC_CONTEXT_COROUTINES:BOOL=OFF \
 -DHPX_WITH_MALLOC=JEMALLOC \
 -DJEMALLOC_INCLUDE_DIR:PATH=/gpfs/bbp.cscs.ch/home/biddisco/apps/gcc-4.8.2/jemalloc/include \
 -DJEMALLOC_LIBRARY:FILEPATH=/gpfs/bbp.cscs.ch/home/biddisco/apps/gcc-4.8.2/jemalloc/lib/libjemalloc.so \
