@@ -228,3 +228,29 @@ cmake \
 .\bootstrap.bat
 b2 --prefix=c:\Boost\1_58_0_vs12 link=shared variant=release,debug architecture=x86 address-model=64 threading=multi install
 ```
+## Monch
+### MongoDB 
+create init.sh with contents
+```
+module load gcc/4.9.0
+export GCC_ROOT=/apps/monch/gcc/4.9.0
+export LD_LIBRARY_PATH=/apps/monch/mpc/1.0.1/lib:/apps/monch/mpfr/3.1.2/lib:/apps/monch/gmp/5.1.2/lib:$LD_LIBRARY_PATH
+```
+create g++wrapper with contents
+```
+#!/bin/bash
+# setup all environment I need, e.g. it sets GCC_ROOT and LD_LIBRARY_PATH
+source /mnt/lnec/biddisco/build/init.sh
+$GCC_ROOT/bin/g++ $@
+```
+create gccwrapper with contents
+```
+#!/bin/bash
+# setup all environment I need, e.g. it sets GCC_ROOT and LD_LIBRARY_PATH
+source /mnt/lnec/biddisco/build/init.sh
+$GCC_ROOT/bin/gcc $@
+```
+compile MongoDB using scons
+```
+~/apps/monch/scons/bin/scons all --prefix=/users/biddisco/apps/monch/mongodb-r3.03 --cxx=/mnt/lnec/biddisco/build/g++wrapper --cc=/mnt/lnec/biddisco/build/gccwrapper --config=force
+```
