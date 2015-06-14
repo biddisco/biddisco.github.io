@@ -258,3 +258,9 @@ compile MongoDB using scons
 ```
 ~/apps/monch/scons/bin/scons all --prefix=/users/biddisco/apps/monch/mongodb-r3.03 --cxx=/mnt/lnec/biddisco/build/g++wrapper --cc=/mnt/lnec/biddisco/build/gccwrapper --config=force
 ```
+## Raspberry Pi (32bit builds)
+### Boost
+```
+./bootstrap.sh --prefix=/home/pi/apps/boost-1_58_0
+./b2 cxxflags="-std=stdc++11" --prefix=/home/pi/apps/boost-1_58_0 --layout=versioned threading=multi link=shared variant=release address-model=32 install
+```
