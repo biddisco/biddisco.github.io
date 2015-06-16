@@ -259,8 +259,28 @@ compile MongoDB using scons
 ~/apps/monch/scons/bin/scons all --prefix=/users/biddisco/apps/monch/mongodb-r3.03 --cxx=/mnt/lnec/biddisco/build/g++wrapper --cc=/mnt/lnec/biddisco/build/gccwrapper --config=force
 ```
 ## Raspberry Pi (32bit builds)
-### Boost
+Using Ubuntu virtual box, setup for cross compilation
 ```
-./bootstrap.sh --prefix=/home/pi/apps/boost-1_58_0
-./b2 cxxflags="-std=stdc++11" --prefix=/home/pi/apps/boost-1_58_0 --layout=versioned threading=multi link=shared variant=release address-model=32 install
+export CXXFLAGS="-mcpu=cortex-a7 -mfpu=neon-vfpv4 -mfloat-abi=hard -D__arm__"
+export   CFLAGS="-mcpu=cortex-a7 -mfpu=neon-vfpv4 -mfloat-abi=hard -D__arm__"
+export PATH=/home/biddisco/pi/tools/arm-bcm2708/gcc-linaro-arm-linux-gnueabihf-raspbian-x64/bin/arm-linux-gnueabihf-g++:$PATH
+alias gcc=/home/biddisco/pi/tools/arm-bcm2708/gcc-linaro-arm-linux-gnueabihf-raspbian-x64/bin/arm-linux-gnueabihf-gcc
+alias g++=/home/biddisco/pi/tools/arm-bcm2708/gcc-linaro-arm-linux-gnueabihf-raspbian-x64/bin/arm-linux-gnueabihf-g++
+```
+### hwloc
+```
+./configure --host=arm-linux --prefix=/home/biddisco/apps/hwloc-1.10.1
+```
+### Boost
+contents of ~/user-config.jam
+```
+using gcc : pi :
+  /home/biddisco/pi/tools/arm-bcm2708/gcc-linaro-arm-linux-gnueabihf-raspbian-x64/bin/arm-linux-gnueabihf-g++ :
+  <compileflags>"-D__arm__ -mcpu=cortex-a7 -mfpu=neon-vfpv4 -mfloat-abi=hard"
+;
+```
+Build boost using 
+```
+./bootstrap.sh --prefix=/home/biddisco/apps/boost-1_58_0
+./b2 -d+2 toolset=gcc-pi architecture=arm address-model=32 abi=aapcs binary-format=elf --debug-configuration --without-python -s NO_BZIP2=1 --layout=versioned threading=multi link=shared variant=release --prefix=/home/biddisco/apps/boost-1.58.0 -j8 install
 ```
