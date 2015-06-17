@@ -316,6 +316,7 @@ cmake --debug-try-compile \
 -DBOOST_ROOT=/home/biddisco/apps/boost-1_58_0 \
 -DBoost_INCLUDE_DIR=/home/biddisco/apps/boost-1_58_0/include/boost-1_58 \
 -DBOOST_LIBRARYDIR=/home/biddisco/apps/boost-1_58_0/lib \
+-DHWLOC_ROOT=/home/biddisco/apps/hwloc-1.10.1 \
 -DHPX_WITH_MALLOC=system -DCMAKE_CXX_FLAGS="-std=c++11 -mcpu=cortex-a7 -mfpu=neon-vfpv4 -mfloat-abi=hard" \
 -DBoost_COMPILER=-gcc \
 -DBOOST_UNDERLYING_THREAD_LIBRARY=/home/biddisco/pi/tools/arm-bcm2708/gcc-linaro-arm-linux-gnueabihf-raspbian-x64/arm-linux-gnueabihf/libc/usr/lib/arm-linux-gnueabihf/libpthread.so \
