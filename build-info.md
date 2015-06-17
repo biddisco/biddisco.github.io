@@ -310,5 +310,15 @@ set(BOOST_UNDERLYING_PTHREAD_LIBRARY /home/biddisco/pi/tools/arm-bcm2708/gcc-lin
 ```
 And build with cmake
 ```
-cmake --debug-try-compile  -DCMAKE_BUILD_TYPE=Debug -DCMAKE_TOOLCHAIN_FILE=/home/biddisco/pi/CMakeRaspberryToolchain.cmake -DBOOST_ROOT=/home/biddisco/apps/boost-1_58_0 -DBoost_INCLUDE_DIR=/home/biddisco/apps/boost-1_58_0/include/boost-1_58 -DBOOST_LIBRARYDIR=/home/biddisco/apps/boost-1_58_0/lib -DBoost_ADDITIONAL_VERSIONS=1_58.0 -DBoost_DEBUG=ON -DHWLOC_ROOT=/home/biddisco/apps/hwloc-1.10.1 -DHPX_WITH_MALLOC=system -DCMAKE_CXX_FLAGS="-std=c++11 -mcpu=cortex-a7 -mfpu=neon-vfpv4 -mfloat-abi=hard" -DBoost_COMPILER=-gcc -DBOOST_UNDERLYING_THREAD_LIBRARY=/home/biddisco/pi/tools/arm-bcm2708/gcc-linaro-arm-linux-gnueabihf-raspbian-x64/arm-linux-gnueabihf/libc/usr/lib/arm-linux-gnueabihf/libpthread.so -DHPX_WITH_GENERIC_CONTEXT_COROUTINES=ON ~/src/hpx
+cmake --debug-try-compile \
+-DCMAKE_BUILD_TYPE=Debug \
+-DCMAKE_TOOLCHAIN_FILE=/home/biddisco/pi/CMakeRaspberryToolchain.cmake \
+-DBOOST_ROOT=/home/biddisco/apps/boost-1_58_0 \
+-DBoost_INCLUDE_DIR=/home/biddisco/apps/boost-1_58_0/include/boost-1_58 \
+-DBOOST_LIBRARYDIR=/home/biddisco/apps/boost-1_58_0/lib \
+-DHPX_WITH_MALLOC=system -DCMAKE_CXX_FLAGS="-std=c++11 -mcpu=cortex-a7 -mfpu=neon-vfpv4 -mfloat-abi=hard" \
+-DBoost_COMPILER=-gcc \
+-DBOOST_UNDERLYING_THREAD_LIBRARY=/home/biddisco/pi/tools/arm-bcm2708/gcc-linaro-arm-linux-gnueabihf-raspbian-x64/arm-linux-gnueabihf/libc/usr/lib/arm-linux-gnueabihf/libpthread.so \
+-DHPX_WITH_GENERIC_CONTEXT_COROUTINES=ON \
+~/src/hpx
 ```
