@@ -282,7 +282,7 @@ using gcc : pi :
 Build boost using 
 ```
 ./bootstrap.sh --prefix=/home/biddisco/apps/boost-1_58_0
-./b2 -d+2 toolset=gcc-pi architecture=arm address-model=32 abi=aapcs binary-format=elf --debug-configuration --without-python -s NO_BZIP2=1 --layout=versioned threading=multi link=shared variant=release --prefix=/home/biddisco/apps/boost-1.58.0 -j8 install
+./b2 -d+2 toolset=gcc-pi architecture=arm address-model=32 abi=aapcs binary-format=elf --debug-configuration --without-python -s NO_BZIP2=1 --layout=versioned threading=multi link=shared variant=release --prefix=/home/biddisco/apps/boost-1_58_0 -j8 install
 ```
 ### HPX
 Toolchain file (work in progress)
