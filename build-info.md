@@ -102,6 +102,17 @@ cmake \
  -DHPX_DIR=/Users/biddisco/build/hpx/lib/cmake/hpx \
  ~/src/spin_glass_solver
 ```
+### Spin glass master project
+```
+cmake \
+-DCMAKE_BUILD_TYPE=Debug \
+-DHWLOC_ROOT=~/apps/hwloc-1.9.1\
+-DBOOST_ROOT=/Users/biddisco/apps/boost-1_57_0 \
+-DBoost_INCLUDE_DIR=/Users/biddisco/apps/boost-1_57_0/include/boost-1_57 \ -DBoost_LIBRARY_DIR=/Users/biddisco/apps/boost-1_57_0/lib \
+-DBoost_COMPILER=-xgcc42 \
+-DHPX_DIR=/Users/biddisco/build/hpx/lib/cmake/hpx  \
+~/src/spin_glass_solver
+```
 
 ### ParaView
 ```
@@ -317,7 +328,8 @@ cmake --debug-try-compile \
 -DBoost_INCLUDE_DIR=/home/biddisco/apps/boost-1_58_0/include/boost-1_58 \
 -DBOOST_LIBRARYDIR=/home/biddisco/apps/boost-1_58_0/lib \
 -DHWLOC_ROOT=/home/biddisco/apps/hwloc-1.10.1 \
--DHPX_WITH_MALLOC=system -DCMAKE_CXX_FLAGS="-std=c++11 -mcpu=cortex-a7 -mfpu=neon-vfpv4 -mfloat-abi=hard" \
+-DHPX_WITH_MALLOC=system \
+-DCMAKE_CXX_FLAGS="-std=c++11 -mcpu=cortex-a7 -mfpu=neon-vfpv4 -mfloat-abi=hard --sysroot=/home/biddisco/pi/tools/arm-bcm2708/gcc-linaro-arm-linux-gnueabihf-raspbian-x64/arm-linux-gnueabihf/libc" \
 -DBoost_COMPILER=-gcc \
 -DBOOST_UNDERLYING_THREAD_LIBRARY=/home/biddisco/pi/tools/arm-bcm2708/gcc-linaro-arm-linux-gnueabihf-raspbian-x64/arm-linux-gnueabihf/libc/usr/lib/arm-linux-gnueabihf/libpthread.so \
 -DHPX_WITH_GENERIC_CONTEXT_COROUTINES=ON \
