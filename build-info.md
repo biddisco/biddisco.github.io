@@ -1,6 +1,10 @@
 # Compilation
 ## Daint
 ### ParaView
+Generate list of plugin setting from cmake cache file
+```
+grep "PARAVIEW_BUILD_PLUGIN[^-]*:" CMakeCache.txt | sed 's/^/ -D/g' | sed 's/$/ \\/g' | sed 's/FALSE/OFF/g'
+```
 ```
 # modules we want 
 module load cudatoolkit
@@ -22,8 +26,34 @@ cmake \
  -DPARAVIEW_USE_MPI:BOOL=ON \
  -DPARAVIEW_BUILD_QT_GUI:BOOL=OFF \
  -DBUILD_TESTING:BOOL=OFF \
- -DOPENGL_INCLUDE_DIR:PATH=/opt/cray/nvidia/default/include 
- -DOPENGL_gl_LIBRARY:FILEPATH=/opt/cray/nvidia/default/lib64/libGL.so
+ -DOPENGL_INCLUDE_DIR:PATH=/opt/cray/nvidia/default/include \
+ -DOPENGL_gl_LIBRARY:FILEPATH=/opt/cray/nvidia/default/lib64/libGL.so \
+ -DPARAVIEW_BUILD_PLUGIN_AdiosReader:BOOL=OFF \
+ -DPARAVIEW_BUILD_PLUGIN_AnalyzeNIfTIIO:BOOL=OFF \
+ -DPARAVIEW_BUILD_PLUGIN_ArrowGlyph:BOOL=OFF \
+ -DPARAVIEW_BUILD_PLUGIN_CGNSReader:BOOL=OFF \
+ -DPARAVIEW_BUILD_PLUGIN_EyeDomeLighting:BOOL=OFF \
+ -DPARAVIEW_BUILD_PLUGIN_ForceTime:BOOL=OFF \
+ -DPARAVIEW_BUILD_PLUGIN_GMVReader:BOOL=OFF \
+ -DPARAVIEW_BUILD_PLUGIN_GeodesicMeasurement:BOOL=TRUE \
+ -DPARAVIEW_BUILD_PLUGIN_H5PartReader:BOOL=OFF \
+ -DPARAVIEW_BUILD_PLUGIN_InSituExodus:BOOL=OFF \
+ -DPARAVIEW_BUILD_PLUGIN_MantaView:BOOL=OFF \
+ -DPARAVIEW_BUILD_PLUGIN_Moments:BOOL=OFF \
+ -DPARAVIEW_BUILD_PLUGIN_Nektar:BOOL=OFF \
+ -DPARAVIEW_BUILD_PLUGIN_NonOrthogonalSource:BOOL=OFF \
+ -DPARAVIEW_BUILD_PLUGIN_PacMan:BOOL=OFF \
+ -DPARAVIEW_BUILD_PLUGIN_PointSprite:BOOL=OFF \
+ -DPARAVIEW_BUILD_PLUGIN_PrismPlugin:BOOL=OFF \
+ -DPARAVIEW_BUILD_PLUGIN_QuadView:BOOL=OFF \
+ -DPARAVIEW_BUILD_PLUGIN_RGBZView:BOOL=OFF \
+ -DPARAVIEW_BUILD_PLUGIN_SLACTools:BOOL=OFF \
+ -DPARAVIEW_BUILD_PLUGIN_SciberQuestToolKit:BOOL=OFF \
+ -DPARAVIEW_BUILD_PLUGIN_SierraPlotTools:BOOL=OFF \
+ -DPARAVIEW_BUILD_PLUGIN_StreamingParticles:BOOL=OFF \
+ -DPARAVIEW_BUILD_PLUGIN_SurfaceLIC:BOOL=OFF \
+ -DPARAVIEW_BUILD_PLUGIN_UncertaintyRendering:BOOL=OFF \
+ -DPARAVIEW_BUILD_PLUGIN_VaporPlugin:BOOL=OFF \
  /scratch/daint/biddisco/src/paraview
 ```
 ### BBP-pv
