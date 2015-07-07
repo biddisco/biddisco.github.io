@@ -109,10 +109,13 @@ cmake \
 cmake \
  -DCMAKE_BUILD_TYPE=Debug \
  -DCMAKE_INSTALL_PREFIX=/Users/biddisco/apps/hpx \
- -DHPX_PARCELPORT_MPI=ON \
- -DHPX_PARCELPORT_TCP=OFF \
  -DHWLOC_ROOT=~/apps/hwloc-1.9.1/ \
+ -DHWLOC_INCLUDE_DIR=~/apps/hwloc-1.9.1/lib/libhwloc.dylib \
+ -DHWLOC_LIBRARY=~/apps/hwloc-1.9.1/lib/libhwloc.dylib \
+ -DHPX_WITH_PARCELPORT_MPI=ON \
+ -DHPX_WITH_PARCELPORT_TCP=OFF \
  -DHPX_BUILD_TESTS_EXTERNAL_BUILD=OFF \
+ -DHPX_WITH_EXAMPLES=OFF \
  -DBOOST_ROOT=/Users/biddisco/apps/boost-1_57_0 \
  -DBoost_INCLUDE_DIR=/Users/biddisco/apps/boost-1_57_0/include/boost-1_57 \
  -DBoost_LIBRARY_DIR=/Users/biddisco/apps/boost-1_57_0/lib \
@@ -125,6 +128,8 @@ cmake \
 cmake \
  -DCMAKE_BUILD_TYPE=Debug \
  -DHWLOC_ROOT=~/apps/hwloc-1.9.1/ \
+ -DHWLOC_INCLUDE_DIR=~/apps/hwloc-1.9.1/lib/libhwloc.dylib \
+ -DHWLOC_LIBRARY=~/apps/hwloc-1.9.1/lib/libhwloc.dylib \
  -DBOOST_ROOT=/Users/biddisco/apps/boost-1_57_0 \
  -DBoost_INCLUDE_DIR=/Users/biddisco/apps/boost-1_57_0/include/boost-1_57 \
  -DBoost_LIBRARY_DIR=/Users/biddisco/apps/boost-1_57_0/lib \
