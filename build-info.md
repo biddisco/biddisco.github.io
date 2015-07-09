@@ -189,11 +189,15 @@ cmake \
  -DSUBPROJECT_codash:BOOL=OFF \
  -DSUBPROJECT_pv_splotch:BOOL=OFF \
  ~/src/bbp-pv
-
-
+```
+```
 cmake -G"Xcode" -DCMAKE_CXX_FLAGS="-std=c++11"  -DBOOST_ROOT=/Users/biddisco/apps/boost-1_57_0  -DBoost_COMPILER=-xgcc42 -DHPX_DIR=/Users/biddisco/build/hpx/lib/cmake/hpx -DHPX_IGNORE_COMPILER_COMPATIBILITY:BOOL=ON -DCMAKE_OSX_ARCHITECTURES=x86_64 ~/src/hpx-my
 ```
-
+# Trlinos
+```
+cmake -DTrilinos_ASSERT_MISSING_PACKAGES=OFF -DBUILD_TESTING:BOOL=OFF -DTrilinos_ENABLE_Zoltan2:BOOL=ON -DTrilinos_ENABLE_Fortran:BOOL=OFF -DTPL_ENABLE_MPI:BOOL=ON -DTrilinos_ENABLE_ALL_OPTIONAL_PACKAGES=OFF ~/src/trilinos
+make -j8
+```
 ## BGAS
 
 ### boost (gcc)
